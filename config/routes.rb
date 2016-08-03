@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cards, only: [:index]
+
   root 'static_pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
