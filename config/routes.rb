@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :cards, only: [:index, :edit, :update, :destroy]
+  resources :cards
 
   root 'static_pages#index'
 

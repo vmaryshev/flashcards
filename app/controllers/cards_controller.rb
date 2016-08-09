@@ -1,6 +1,19 @@
 class CardsController < ApplicationController
+  
   def index
     @cards = Card.all
+  end
+
+  def new
+  	@card = Card.new
+  end
+
+  def create
+  	attributes = params[:card].permit(:original_text, :translated_text)
+
+  	Card.create(attributes)
+
+  	redirect_to cards_path
   end
 
   def edit
@@ -21,7 +34,7 @@ class CardsController < ApplicationController
   	@card = Card.find(params[:id])
 
   	@card.destroy
-  	
+
   	redirect_to cards_path
   end
 
